@@ -15,15 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from graphene_django.views import GraphQLView
-from room.api import RoomViewSet
-
 from rest_framework import routers
+
+from room.api import RoomViewSet
+from player.api import PlayerViewSet
+from map.api import MapViewSet
+
 router = routers.DefaultRouter()
+
 
 #this will be /api/room
 router.register('room',RoomViewSet)
+
+#this will correspond to /api/player
+router.register('player',PlayerViewSet)
+
+#this will correspond to /api/map
+router.register('map', MapViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
