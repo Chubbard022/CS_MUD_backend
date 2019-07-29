@@ -26,13 +26,13 @@ router = routers.DefaultRouter()
 
 
 #this will be /api/room
-router.register('room',RoomViewSet)
+router.register(r'room',RoomViewSet)
 
 #this will correspond to /api/player
-router.register('player',PlayerViewSet)
+router.register(r'player',PlayerViewSet)
 
 #this will correspond to /api/map
-router.register('map', MapViewSet)
+router.register(r'map', MapViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
