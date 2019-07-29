@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,10 +33,11 @@ ALLOWED_HOSTS = ['cs-mud-backend.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    "room",
-    "player",
-    "map",
-    "graphene_django",
+    'room',
+    'player',
+    'map',
+    'graphene_django',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +130,11 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'room.schema.schema'
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+django_heroku.settings(locals())
