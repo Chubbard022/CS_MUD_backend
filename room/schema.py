@@ -8,7 +8,7 @@ class RoomType(DjangoObjectType):
     class Meta:
         model = Room
         #this tuple tells graphql that the Room class is a list of Nodes
-        interface = (graphene.relay.Room,)
+        interface = (graphene.relay.Node,)
 
 class Query(graphene.ObjectType):
     # will return a list of room types based on the room model

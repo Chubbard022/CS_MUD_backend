@@ -37,5 +37,5 @@ router.register(r'map', MapViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
-    path('api/', include(routers.urls)),
+    path('api/', include(router.urls)),
 ]
